@@ -21,6 +21,7 @@
     "jest": {
       "transform": {
         "^.+\\.js$": "babel-jest"
-      }
+      },
+      "testRegex": "(\\.(test|spec))\\.js$"
     }
 }
