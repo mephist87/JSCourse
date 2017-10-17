@@ -1,7 +1,7 @@
 import operationProcessor from '../src/homework/operationProcessor';
 
-const input = require('input');
-const expectedOutput = require('output');
+const input = require('./data/input');
+const expectedOutput = require('./data/output');
 
 describe("Json processor", function () {
     it('Process input JSON file', function () {
