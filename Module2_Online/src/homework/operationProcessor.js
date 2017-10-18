@@ -17,7 +17,7 @@ const operations =
         "links": [
             {
                 "name": "link2",
-                "href": "https://amazon.com",
+                "href": "http://google.com",
                 "method": "GET"
             }
         ]
@@ -112,11 +112,11 @@ function process(items){
     // проверяем, есть ли ключ-дата
     // если есть - добавляем соответствующие массивы operations и links новые объекты
     // если нет - по текущему ключу присваиваем объект с полями-массивами
-    //            operations (записываем операцию как объект целиком) и links (записываем линки текущего объекта)
+    // operations (записываем операцию как объект целиком) и links (записываем линки текущего объекта если ещё не было с таким же href)
     items.forEach(item => {
         unordered[item.date] = unordered[item.date]
-            ? { operations: unordered[item.date].operations.concat(item), links: unordered[item.date].links.concat(item.links) }
-            : { operations: [item], links: [item.links] };
+            ? { operations: unordered[item.date].operations.concat(item), links: getUniqueLinks(unordered[item.date].links, item.links)}
+            : { operations: [item], links: item.links };
     });
 
     // const ordered = {};
@@ -128,4 +128,9 @@ function process(items){
     // });
 
      return unordered;
+ }
+
+ function getUniqueLinks(thisLinkArr, newLinkArr) {
+    const existingHrefsMap = thisLinkArr.map(item => item.href);
+    return thisLinkArr.concat(newLinkArr.filter(item => !existingHrefsMap.includes(item.href)));
  }
