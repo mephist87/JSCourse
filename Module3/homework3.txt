@@ -1,0 +1,49 @@
+// ЗАДАНИЕ ДЕКОДЕР
+var abc1 = "abcdefghijklmnopqrstuvwxyz";
+var abc2 = "etaoinshrdlucmfwypvbgkjqxz";
+
+var sub = new SubstitutionCipher(abc1, abc2);
+sub.encode("abc") // => "eta"
+sub.encode("xyz") // => "qxz"
+sub.encode("aeiou") // => "eirfg"
+
+sub.decode("eta") // => "abc"
+sub.decode("qxz") // => "xyz"
+sub.decode("eirfg") // => "aeiou"
+
+// ФУНКЦИЯ
+seven(times(five())); // must return 35
+four(plus(nine())); // must return 13
+eight(minus(three())); // must return 5
+six(dividedBy(two())); // must return 3
+
+
+// ====================================
+
+/// СТРОКОВЫЙ БУФФЕР
+function makeBuffer() {
+
+}
+
+var buffer = makeBuffer();
+
+buffer('Замыкания');
+buffer(' Использовать');
+buffer(' Нужно!');
+
+console.log(buffer());
+
+
+
+buffer.clear();
+
+console.log(buffer());
+
+// *******
+
+
+sum(2)(4)(5)(6)();
+17
+
+sum(1)(2)();
+3
