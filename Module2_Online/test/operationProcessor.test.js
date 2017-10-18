@@ -1,4 +1,4 @@
-import operationProcessor from '../src/homework/operationProcessor';
+import { operationProcessor } from '../src/homework/operationProcessor';
 
 const input = require('./data/input');
 const expectedOutput = require('./data/output');

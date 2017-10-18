@@ -102,13 +102,12 @@ const expectedOutput = {
 function checkVisual() {
     document.getElementById("inputArray").innerHTML = JSON.stringify(operations, undefined, 2);
     document.getElementById("expectedOutput").innerHTML = JSON.stringify(expectedOutput, undefined, 2);
-
-// let result = operations.sort((elem1, elem2) => new Date(elem2.date) - new Date(elem1.date));
+    let result = process(operations);
     document.getElementById("realOutput").innerHTML = JSON.stringify(result, undefined, 2);
 }
 
 
- export default function process(items){
+function process(items){
     let unordered = {};
     // проверяем, есть ли ключ-дата
     // если есть - добавляем соответствующие массивы operations и links новые объекты
@@ -116,23 +115,17 @@ function checkVisual() {
     //            operations (записываем операцию как объект целиком) и links (записываем линки текущего объекта)
     items.forEach(item => {
         unordered[item.date] = unordered[item.date]
-            ? { operations: unordered[item.date].operations.push(item), links: unordered[item.date].links.push(item.links) }
+            ? { operations: unordered[item.date].operations.concat(item), links: unordered[item.date].links.concat(item.links) }
             : { operations: [item], links: [item.links] };
     });
 
-    const ordered = {};
-    //сортируем по ключам
-     console.log(Object.keys(unordered).sort((date1, date2) => new Date(date2) - new Date(date1)));
-    Object.keys(unordered).sort((date1, date2) => new Date(date2) - new Date(date1)).forEach(function (key) {
-        console.log(key);
-        ordered[key] = unordered[key];
-    });
+    // const ordered = {};
+    // //сортируем по ключам
+    //  console.log(Object.keys(unordered).sort((date1, date2) => new Date(date2) - new Date(date1)));
+    // Object.keys(unordered).sort((date1, date2) => new Date(date2) - new Date(date1)).forEach(function (key) {
+    //     console.log(key);
+    //     ordered[key] = unordered[key];
+    // });
 
-     // let result = items.reduce(function (acc, item) {
-     //     var key = item.date;
-     //     acc[key] = acc[key] || [];
-     //     acc[key].push(Object.assign({}, {operations: item}));
-     //     return acc;
-     // }, {});
      return unordered;
  }

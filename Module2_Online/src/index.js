@@ -1,3 +1,4 @@
-import parseAmount from './parseAmount'
-
-alert(parseAmount('123,45'));
+import parseAmount from './parseAmount';
+import { process, checkVisual } from './homework/operationProcessor';
+window.process = process;
+window.checkVisual = checkVisual;
