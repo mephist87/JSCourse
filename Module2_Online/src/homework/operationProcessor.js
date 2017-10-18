@@ -118,15 +118,6 @@ function process(items){
             ? { operations: unordered[item.date].operations.concat(item), links: getUniqueLinks(unordered[item.date].links, item.links)}
             : { operations: [item], links: item.links };
     });
-
-    // const ordered = {};
-    // //сортируем по ключам
-    //  console.log(Object.keys(unordered).sort((date1, date2) => new Date(date2) - new Date(date1)));
-    // Object.keys(unordered).sort((date1, date2) => new Date(date2) - new Date(date1)).forEach(function (key) {
-    //     console.log(key);
-    //     ordered[key] = unordered[key];
-    // });
-
      return unordered;
  }
 
