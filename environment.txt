@@ -1,0 +1,2 @@
+npm init // создаёт package.json файл
+npm install webpack --save-dev // устанавливает упаковщик webpack и прописывает его в devDependencies

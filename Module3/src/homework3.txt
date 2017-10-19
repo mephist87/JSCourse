@@ -33,8 +33,6 @@ buffer(' Нужно!');
 
 console.log(buffer());
 
-
-
 buffer.clear();
 
 console.log(buffer());
@@ -47,3 +45,6 @@ sum(2)(4)(5)(6)();
 
 sum(1)(2)();
 3
+
+sum(1)(2) == 3
+
