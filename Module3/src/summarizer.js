@@ -3,7 +3,9 @@ export function sum(a) {
     let accumulator = a;
 
     function summarizer(b) {
-        if (b === undefined) b = 0;
+        if (b === undefined) {
+            return accumulator;
+        }
         accumulator += b;
         return summarizer;
     }

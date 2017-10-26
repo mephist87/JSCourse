@@ -1,4 +1,4 @@
-import { one, two, three, four, five, six, eight, nine } from '../src/calculator';
+import { one, two, three, four, five, six, seven, eight, nine } from '../src/calculator';
 import { plus, minus, times, dividedBy } from '../src/calculator';
 
 describe("Calculate expression", function () {

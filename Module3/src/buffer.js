@@ -8,7 +8,7 @@ export function makeBuffer() {
         return buffer;
     }
 
-    this.clear = function () {
+    buffer.clear = function () {
         str = '';
     };
 

@@ -1,4 +1,4 @@
-import makeBuffer from '../src/buffer';
+import { makeBuffer } from '../src/buffer';
 
 describe("Buffer test", function () {
     let buffer = makeBuffer();
