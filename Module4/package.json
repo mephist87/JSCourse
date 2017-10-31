@@ -1,0 +1,29 @@
+{
+  "name": "module4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "author": "svkrasnov@alfabank.ru",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^21.2.1",
+    "webpack": "^3.8.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }
+}
