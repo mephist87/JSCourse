@@ -1,10 +1,14 @@
 const path = require('path'); // забираем стандартный нодовый модуль path
+const CleanWebpackPlugin = require('clean-webpack-plugin'); //installed via npm
+
+const buildPath = path.resolve(__dirname, '.build');
 
 module.exports = {
     entry: './src/index.js',
+
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, '.build') // _dirname - глобальная, указывает на текущую директорию
+        path: buildPath // _dirname - глобальная, указывает на текущую директорию
     },
     module: {
         rules: [{
@@ -16,5 +20,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             }
         ]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin(buildPath)
+]
 };
